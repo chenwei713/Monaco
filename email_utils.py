@@ -22,6 +22,7 @@ recipients = ["chenweix7@gmail.com",
               "man_luo@foxmail.com"
               ]
 
+
 class GmailClient:
 
     def __init__(self):
@@ -66,12 +67,11 @@ class GmailClient:
             create_message = {"raw": encoded_message}
             # pylint: disable=E1101
             send_message = (
-              self.service.users()
-              .messages()
-              .send(userId="me", body=create_message)
-              .execute()
+                self.service.users()
+                .messages()
+                .send(userId="me", body=create_message)
+                .execute()
             )
-
 
         except HttpError as error:
             # TODO(developer) - Handle errors from gmail API.
@@ -79,5 +79,5 @@ class GmailClient:
 
 
 if __name__ == "__main__":
-  gmailClient = GmailClient()
-  gmailClient.send_email("")
+    gmailClient = GmailClient()
+    gmailClient.send_email("")
